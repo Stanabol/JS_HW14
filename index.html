@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="chart_div" style="width: 1600px; height: 600px;"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+            var data = google.visualization.arrayToDataTable([
+                ['Thems', '01_Basic', '02_types_&_operators', '03_cycles', '04_functions', '05_recursion', '06_objects', '07_arrays', '08_strings', '09_class', '10_DOM', '11_Events', '12_jQuery', '13_API', '14_plugins'],
+                ['Максим Захарчук', 100, 100, 40, 100, 100, 100, 0, 0, 0, 0, 0, 0, 0, 0],
+                ['Антон Кулица', 90, 100, 90, 90, 100, 80, 0, 0, 0, 0, 0, 100, 0, 0],
+                ['Виталий Садченко', 90, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                ['Дмитрий Таранец', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                ['Александр Верховод', 100, 100, 90, 100, 100, 100, 61, 100, 0, 0, 0, 0, 0, 0]
+            ]);
+
+            var options = {
+                title: 'Home Work Points',
+                vAxis: { title: 'Rating' },
+                hAxis: { title: 'Students' },
+                seriesType: 'bars',
+                series: { 14: { type: 'line' } }
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+</body>
+
+</html>
